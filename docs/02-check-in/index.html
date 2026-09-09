@@ -1,0 +1,542 @@
+<!DOCTYPE html><html lang="pt-BR" style="width: 390px; height: 1562px; overflow: hidden; position: relative;"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="../manifest.json" rel="manifest"><meta content="#a03b14" name="theme-color"><link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="Moodbeat" name="apple-mobile-web-app-title">
+<script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }</script>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-tertiary-fixed-variant": "#4f3e6b",
+          "primary": "#a03b14",
+          "tertiary": "#655482",
+          "on-secondary": "#ffffff",
+          "tertiary-fixed-dim": "#d3bdf3",
+          "on-surface": "#221a16",
+          "secondary-fixed": "#c6ecce",
+          "on-error": "#ffffff",
+          "surface-tint": "#a33e16",
+          "inverse-surface": "#382e2a",
+          "on-primary-fixed-variant": "#822700",
+          "tertiary-fixed": "#ecdcff",
+          "surface-container": "#fbebe4",
+          "error-container": "#ffdad6",
+          "on-surface-variant": "#57423b",
+          "secondary": "#44664e",
+          "on-primary-fixed": "#390c00",
+          "surface-container-lowest": "#ffffff",
+          "secondary-fixed-dim": "#aacfb3",
+          "outline": "#8a726a",
+          "primary-fixed-dim": "#ffb59c",
+          "surface-variant": "#efdfd9",
+          "on-secondary-fixed-variant": "#2d4e38",
+          "on-error-container": "#93000a",
+          "surface": "#fff8f6",
+          "surface-container-high": "#f5e5de",
+          "on-primary": "#ffffff",
+          "tertiary-container": "#7f6c9c",
+          "error": "#ba1a1a",
+          "inverse-primary": "#ffb59c",
+          "inverse-on-surface": "#feede7",
+          "surface-container-low": "#fff1eb",
+          "on-tertiary-fixed": "#23123d",
+          "on-tertiary": "#ffffff",
+          "surface-container-highest": "#efdfd9",
+          "background": "#fff8f6",
+          "surface-bright": "#fff8f6",
+          "primary-container": "#c0532a",
+          "on-tertiary-container": "#fffbff",
+          "primary-fixed": "#ffdbcf",
+          "on-secondary-container": "#4a6c54",
+          "secondary-container": "#c6ecce",
+          "surface-dim": "#e7d7d1",
+          "on-primary-container": "#fffbff",
+          "on-background": "#221a16",
+          "on-secondary-fixed": "#00210f",
+          "outline-variant": "#dec0b7"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter-sm": "1rem",
+          "space-sm": "0.75rem",
+          "space-2xs": "0.25rem",
+          "space-4xl": "6rem",
+          "space-xs": "0.5rem",
+          "gutter-md": "1.5rem",
+          "margin-tablet": "2rem",
+          "space-lg": "1.5rem",
+          "space-xl": "2rem",
+          "max-content-width": "75rem",
+          "space-2xl": "3rem",
+          "space-md": "1rem",
+          "gutter-lg": "2rem",
+          "margin-mobile": "1.25rem",
+          "space-3xl": "4rem",
+          "margin-desktop": "3.5rem"
+        },
+        "fontFamily": {
+          "display-lg-mobile": [
+            "Epilogue"
+          ],
+          "label-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "display-lg": [
+            "Epilogue"
+          ],
+          "label-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "body-md": [
+            "Plus Jakarta Sans"
+          ],
+          "body-sm": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-md": [
+            "Epilogue"
+          ],
+          "headline-lg": [
+            "Epilogue"
+          ],
+          "headline-lg-mobile": [
+            "Epilogue"
+          ],
+          "label-lg": [
+            "Plus Jakarta Sans"
+          ],
+          "headline-sm": [
+            "Epilogue"
+          ]
+        },
+        "fontSize": {
+          "display-lg-mobile": [
+            "36px",
+            {
+              "lineHeight": "44px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-sm": [
+            "11px",
+            {
+              "lineHeight": "14px",
+              "letterSpacing": "0.03em",
+              "fontWeight": "500"
+            }
+          ],
+          "display-lg": [
+            "56px",
+            {
+              "lineHeight": "64px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "label-md": [
+            "12px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.02em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "28px",
+              "letterSpacing": "0.005em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "16px",
+            {
+              "lineHeight": "24px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-sm": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-md": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg": [
+            "40px",
+            {
+              "lineHeight": "48px",
+              "letterSpacing": "-0.015em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-lg-mobile": [
+            "28px",
+            {
+              "lineHeight": "36px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "500"
+            }
+          ],
+          "label-lg": [
+            "14px",
+            {
+              "lineHeight": "20px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "600"
+            }
+          ],
+          "headline-sm": [
+            "20px",
+            {
+              "lineHeight": "28px",
+              "fontWeight": "500"
+            }
+          ]
+        }
+      },
+    },
+  }
+</script><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head><body class="bg-surface font-body-md text-body-md text-on-surface min-h-screen flex flex-col antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.03)]"><div class="h-16 px-margin-mobile flex items-center justify-between"><div class="flex items-center gap-space-xs"><img alt="Moodbeat Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArTo_9S0DI8bbeDJtqeOAoRtdhDFTd2oXzy-rdFmxEzzu4C0m_cPKvQZrdveZWVOxwnFtBQXlmVvCH7h5O9G0X7xGpZ8GdGfuru0YKae78cgd8wWeuCwahbitDdTykBfHYmwWOQjySizWtQZHApkx4gs0B0mWberFLvAjH4O9FOTybB9Qx-qI4bEeFZBpSDhw5Mz-7wvw8Fc0YobjxJaso4yhiG75g8hpuW_ELxiJ1V5Xk_7aKhaSkIw"><div class="flex flex-col"><div class="flex items-center gap-1.5"><span class="font-label-lg text-label-lg text-primary tracking-tight font-semibold">Moodbeat</span><span class="w-1.5 h-1.5 rounded-full bg-primary-container/40"></span><span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Check In</span></div><span class="font-label-sm text-label-sm text-on-surface-variant/80">Olá, que a paz te encontre</span></div></div><div class="flex items-center gap-space-xs"><button aria-label="Buscar ou Notificações" class="w-11 h-11 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors duration-200"><span class="material-symbols-outlined text-[22px]">notifications_none</span></button><a class="w-11 h-11 flex items-center justify-center transition-transform duration-200 active:scale-95" data-path="ajustes" href="../05-ajustes/index.html"><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-[0_2px_6px_rgba(0,0,0,0.08)] ring-2 ring-surface-container-lowest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEIXCj3fxzz3lj-yuG1-7_ye81qrwRsVKKKxsDyX1II6FCdCRjP-yv1BSOkS5qimMJbtoHlMpMy5yt14FiSK3LyUy9ulDmv3NNFDOZBLBLvPT9yIWsbZTLp1IDkUwLKH3b0vX3s_sBxm0s8Z8MLc7tzFJwDR6Ft_mefy1PpJJz1Coal_7T_ZOC2y6BidEJMzooKeZ0ArH4cJtJXZ5UuNZaNbgm2Ee309hg6Sasw1Nxmq3MB4cBCJL74w"></a></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-28 px-margin-mobile bg-surface"><div class="flex flex-col w-full max-w-lg mx-auto space-y-space-xl">
+<!-- Subtle Ambient Breathing Mandala (Inspiration matched) -->
+<div class="flex flex-col items-center justify-center pt-space-xs text-center">
+<div class="relative w-28 h-28 flex items-center justify-center mb-space-sm">
+<!-- Animated concentric soothing waves inspired by reference image -->
+<div class="absolute inset-0 rounded-full bg-primary/10 animate-ping opacity-30" style="animation-duration: 4s;"></div>
+<div class="absolute inset-2 rounded-full bg-tertiary-fixed/60 animate-pulse" style="animation-duration: 3s;"></div>
+<div class="relative w-20 h-20 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center">
+<!-- Abstract mandala concentric ring SVG reflecting prompt image -->
+<svg class="w-14 h-14 text-primary" fill="none" stroke="currentColor" viewBox="0 0 100 100">
+<circle class="text-primary-container/40" cx="50" cy="50" r="44" stroke-width="2"></circle>
+<circle class="text-tertiary/30" cx="50" cy="50" r="36" stroke-width="1.8"></circle>
+<circle class="text-primary/60" cx="50" cy="50" r="28" stroke-width="2"></circle>
+<circle class="text-secondary/50" cx="50" cy="50" r="20" stroke-width="2.5"></circle>
+<circle class="text-primary fill-primary-fixed/40" cx="50" cy="50" r="10" stroke-width="3"></circle>
+<path class="text-primary/40" d="M50 14 C65 25, 75 35, 86 50 C75 65, 65 75, 50 86 C35 75, 25 65, 14 50 C25 35, 35 25, 50 14 Z" stroke-width="1.5"></path>
+<path class="text-tertiary/40" d="M50 22 C60 30, 70 40, 78 50 C70 60, 60 70, 50 78 C40 70, 30 60, 22 50 C30 40, 40 30, 50 22 Z" stroke-width="1.5"></path>
+</svg>
+</div>
+</div>
+<!-- TERTIARY COLOR for mindfulness badge -->
+<span class="inline-flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm mb-space-2xs">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+      Pausa Consciente
+    </span>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface tracking-tight font-semibold">
+      Como você está se sentindo agora?
+    </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+      Reserve 15 segundos para si mesmo.
+    </p>
+</div>
+<!-- Energy Spectrum Selector (Scale 1 to 5) -->
+<!-- Emotion Chips Grid Section -->
+<section class="flex flex-col space-y-space-sm">
+<div class="flex items-center justify-between px-1">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Como está o seu momento?</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Selecione uma ou mais emoções</p>
+</div>
+<span class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-medium" id="selected-count">1 selecionada</span>
+</div>
+<div class="flex flex-wrap gap-3 pt-2" id="tags-container">
+<!-- Selected emotion chip using PRIMARY COLOR (warm terracotta) -->
+<button class="emotion-chip active flex items-center gap-2 px-5 py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-[17px] font-semibold shadow-sm transition-all duration-200 active:scale-95" data-emotion="calmo" type="button">
+<span class="">Calmo</span>
+<span class="text-xl">🌿</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="grato" type="button">
+<span class="">Grato</span>
+<span class="text-xl">✨</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="focado" type="button">
+<span class="">Focado</span>
+<span class="text-xl">🎯</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="ansioso" type="button">
+<span class="">Ansioso</span>
+<span class="text-xl">⚡</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="entusiasmado" type="button">
+<span class="">Entusiasmado</span>
+<span class="text-xl">☀️</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="reflexivo" type="button">
+<span class="">Reflexivo</span>
+<span class="text-xl">🌙</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="inquieto" type="button">
+<span class="">Inquieto</span>
+<span class="text-xl">🌊</span>
+</button>
+<button class="emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95" data-emotion="esgotado" type="button">
+<span class="">Esgotado</span>
+<span class="text-xl">🌧️</span>
+</button>
+<!-- Add New Emotion Action Button using TERTIARY COLOR (soft purple/lavender) -->
+<button class="flex items-center gap-2 px-5 py-3.5 rounded-full bg-tertiary-fixed text-tertiary font-label-lg text-[17px] hover:bg-tertiary-fixed-dim/60 transition-colors duration-200 active:scale-95 font-semibold" id="btn-open-new-tag" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span class="">Adicionar nova emoção</span>
+</button>
+</div>
+<!-- Inline Quick Add Input Bar (Hidden by default) -->
+<div class="hidden flex items-center gap-space-xs p-2 rounded-2xl bg-surface-container-lowest shadow-sm border border-outline-variant/30 transition-all duration-200 mt-space-xs" id="inline-tag-form">
+<input class="flex-1 bg-transparent px-space-sm py-2 font-body-md text-body-md text-on-surface outline-none placeholder:text-on-surface-variant/50" id="new-tag-input" placeholder="Ex: Esperançoso 🌸" type="text">
+<button class="px-space-md py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors" id="btn-save-tag" type="button">
+        Salvar
+      </button>
+<button class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container" id="btn-cancel-tag" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</section><section class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-space-lg shadow-sm border border-outline-variant/30">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex flex-col">
+<span class="flex items-center gap-1.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Nível de Energia Vital</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/70">Opcional</span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Como seu corpo ressoa neste instante</span>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md transition-all duration-300 font-medium" id="energy-badge">
+        Não marcado
+      </span>
+</div>
+<!-- Stepped Harmonic Selector -->
+<div class="grid grid-cols-5 gap-space-xs mt-space-md">
+<button class="energy-btn group flex flex-col items-center p-space-xs rounded-2xl transition-all duration-200 hover:bg-surface-container-low text-center" data-energy="1" type="button">
+<div class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant group-[.active]:bg-primary group-[.active]:text-on-primary shadow-sm transition-all duration-200 scale-95 group-[.active]:scale-105">
+<span class="material-symbols-outlined text-[20px]">battery_1_bar</span>
+</div>
+<span class="font-label-sm text-label-sm mt-2 text-on-surface-variant group-[.active]:text-primary group-[.active]:font-semibold">Baixa</span>
+</button>
+<button class="energy-btn group flex flex-col items-center p-space-xs rounded-2xl transition-all duration-200 hover:bg-surface-container-low text-center" data-energy="2" type="button">
+<div class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant group-[.active]:bg-primary group-[.active]:text-on-primary shadow-sm transition-all duration-200 scale-95 group-[.active]:scale-105">
+<span class="material-symbols-outlined text-[20px]">battery_3_bar</span>
+</div>
+<span class="font-label-sm text-label-sm mt-2 text-on-surface-variant group-[.active]:text-primary group-[.active]:font-semibold">Suave</span>
+</button>
+<button class="energy-btn group flex flex-col items-center p-space-xs rounded-2xl transition-all duration-200 hover:bg-surface-container-low text-center" data-energy="3" type="button">
+<div class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant group-[.active]:bg-primary group-[.active]:text-on-primary shadow-sm transition-all duration-200 scale-95 group-[.active]:scale-105">
+<span class="material-symbols-outlined text-[20px]">battery_5_bar</span>
+</div>
+<span class="font-label-sm text-label-sm mt-2 text-on-surface-variant group-[.active]:text-primary group-[.active]:font-semibold">Neutro</span>
+</button>
+<button class="energy-btn group flex flex-col items-center p-space-xs rounded-2xl transition-all duration-200 hover:bg-surface-container-low text-center" data-energy="4" type="button">
+<div class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant group-[.active]:bg-primary group-[.active]:text-on-primary shadow-sm transition-all duration-200 scale-95 group-[.active]:scale-105">
+<span class="material-symbols-outlined text-[20px]">battery_6_bar</span>
+</div>
+<span class="font-label-sm text-label-sm mt-2 text-on-surface-variant group-[.active]:text-primary group-[.active]:font-semibold">Vibrante</span>
+</button>
+<button class="energy-btn group flex flex-col items-center p-space-xs rounded-2xl transition-all duration-200 hover:bg-surface-container-low text-center" data-energy="5" type="button">
+<div class="w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant group-[.active]:bg-primary group-[.active]:text-on-primary shadow-sm transition-all duration-200 scale-95 group-[.active]:scale-105">
+<span class="material-symbols-outlined text-[20px]">bolt</span>
+</div>
+<span class="font-label-sm text-label-sm mt-2 text-on-surface-variant group-[.active]:text-primary group-[.active]:font-semibold">Radiante</span>
+</button>
+</div>
+<div class="mt-space-md w-full bg-surface-container-high h-1.5 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-300 w-0" id="energy-progress"></div>
+</div>
+</section>
+<!-- Emotion Chips Grid Section -->
+<!-- Optional Reflection / Trigger Input -->
+<section class="flex flex-col space-y-space-xs">
+<label class="flex items-center justify-between px-1" for="trigger-input">
+<span class="font-headline-sm text-headline-sm text-on-surface">Algum comentário ou gatilho?</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">Opcional</span>
+</label>
+<div class="relative w-full rounded-2xl bg-surface-container-lowest shadow-sm border border-outline-variant/30 overflow-hidden focus-within:shadow-md focus-within:border-primary/50 transition-all">
+<textarea class="w-full bg-transparent p-space-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 outline-none resize-none" id="trigger-input" placeholder="Ex: Reunião longa, café com amigo, pausa para respirar..." rows="3"></textarea>
+<div class="flex items-center justify-between px-space-md pb-space-sm pt-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant/60 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+          Privado e criptografado
+        </span>
+<button class="text-on-surface-variant hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">mic</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Routine / Schedule Pill Notice using SECONDARY COLOR (sage/moss green) -->
+<div class="flex items-center gap-space-sm p-space-md rounded-2xl bg-surface-container-low border border-outline-variant/30 text-on-surface-variant">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Próximo lembrete hoje às 15:30</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant truncate">Intervalo suave de 2h ativo</span>
+</div>
+<button class="text-secondary hover:text-on-secondary-container p-1 rounded-lg" type="button">
+<span class="material-symbols-outlined text-[18px]">tune</span>
+</button>
+</div>
+<!-- Primary Action Area -->
+<div class="pt-space-xs pb-space-sm flex flex-col items-center space-y-space-sm">
+<!-- Main CTA button using PRIMARY COLOR (warm terracotta/orange) -->
+<button class="w-full h-14 rounded-full bg-primary text-on-primary font-headline-sm text-headline-sm shadow-md hover:bg-primary-container hover:shadow-lg transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2" id="btn-submit" type="button">
+<span class="">Registrar Sentimento</span>
+<span class="material-symbols-outlined text-[22px]">arrow_forward</span>
+</button>
+<p class="font-label-sm text-label-sm text-on-surface-variant/70 text-center">
+      Seus registros alimentam seu gráfico de bem-estar intradiário.
+    </p>
+</div>
+</div>
+<script>
+  (function() {
+    // Energy levels text and progression helper
+    const energyBadge = document.getElementById('energy-badge');
+    const energyProgress = document.getElementById('energy-progress');
+    const energyButtons = document.querySelectorAll('.energy-btn');
+
+    const descriptions = {
+      '1': { label: 'Nível 1 · Baixa energia', width: '20%' },
+      '2': { label: 'Nível 2 · Suave e sereno', width: '40%' },
+      '3': { label: 'Nível 3 · Equilibrado', width: '60%' },
+      '4': { label: 'Nível 4 · Vibrante', width: '80%' },
+      '5': { label: 'Nível 5 · Radiante', width: '100%' }
+    };
+
+    energyButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const wasActive = btn.classList.contains('active');
+
+        energyButtons.forEach(b => {
+          b.classList.remove('active');
+          const circle = b.querySelector('div');
+          circle.className = 'w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant shadow-sm transition-all duration-200 scale-95';
+          const label = b.querySelector('span:last-child');
+          label.className = 'font-label-sm text-label-sm mt-2 text-on-surface-variant';
+        });
+
+        if (wasActive) {
+          // Clicar de novo no mesmo nível desmarca (energia é opcional)
+          energyBadge.textContent = 'Não marcado';
+          energyProgress.style.width = '0%';
+          return;
+        }
+
+        btn.classList.add('active');
+        const activeCircle = btn.querySelector('div');
+        activeCircle.className = 'w-11 h-11 rounded-full flex items-center justify-center bg-primary text-on-primary shadow-sm transition-all duration-200 scale-105';
+        const activeLabel = btn.querySelector('span:last-child');
+        activeLabel.className = 'font-label-sm text-label-sm mt-2 text-primary font-semibold';
+
+        const val = btn.getAttribute('data-energy');
+        if (descriptions[val]) {
+          energyBadge.textContent = descriptions[val].label;
+          energyProgress.style.width = descriptions[val].width;
+        }
+      });
+    });
+
+    // Emotion chips selection
+    const tagsContainer = document.getElementById('tags-container');
+    const selectedCount = document.getElementById('selected-count');
+
+    function updateSelectedCount() {
+      const activeChips = tagsContainer.querySelectorAll('.emotion-chip.active');
+      const count = activeChips.length;
+      selectedCount.textContent = count === 1 ? '1 selecionada' : `${count} selecionadas`;
+    }
+
+    tagsContainer.addEventListener('click', (e) => {
+      const chip = e.target.closest('.emotion-chip');
+      if (!chip) return;
+
+      chip.classList.toggle('active');
+      if (chip.classList.contains('active')) {
+        chip.className = 'emotion-chip active flex items-center gap-2 px-5 py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-[17px] font-semibold shadow-sm transition-all duration-200 active:scale-95';
+      } else {
+        chip.className = 'emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95';
+      }
+      updateSelectedCount();
+    });
+
+    // Add new emotion dynamic inline field
+    const btnOpenNewTag = document.getElementById('btn-open-new-tag');
+    const inlineTagForm = document.getElementById('inline-tag-form');
+    const newTagInput = document.getElementById('new-tag-input');
+    const btnSaveTag = document.getElementById('btn-save-tag');
+    const btnCancelTag = document.getElementById('btn-cancel-tag');
+
+    btnOpenNewTag.addEventListener('click', () => {
+      inlineTagForm.classList.remove('hidden');
+      newTagInput.focus();
+    });
+
+    btnCancelTag.addEventListener('click', () => {
+      inlineTagForm.classList.add('hidden');
+      newTagInput.value = '';
+    });
+
+    function saveNewTag() {
+      const text = newTagInput.value.trim();
+      if (!text) return;
+
+      const newBtn = document.createElement('button');
+      newBtn.type = 'button';
+      newBtn.className = 'emotion-chip active flex items-center gap-2 px-5 py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-[17px] font-semibold shadow-sm transition-all duration-200 active:scale-95';
+      newBtn.innerHTML = `<span>${text}</span>`;
+
+      tagsContainer.insertBefore(newBtn, btnOpenNewTag);
+      newTagInput.value = '';
+      inlineTagForm.classList.add('hidden');
+      updateSelectedCount();
+    }
+
+    btnSaveTag.addEventListener('click', saveNewTag);
+    newTagInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        saveNewTag();
+      }
+    });
+
+    // Submit confirmation toast feedback
+    const btnSubmit = document.getElementById('btn-submit');
+    btnSubmit.addEventListener('click', () => {
+      const prevHtml = btnSubmit.innerHTML;
+      btnSubmit.innerHTML = `<span class="material-symbols-outlined text-[22px] animate-spin">refresh</span><span>Registrando...</span>`;
+      btnSubmit.disabled = true;
+
+      setTimeout(() => {
+        btnSubmit.innerHTML = `<span class="material-symbols-outlined text-[22px]">check</span><span>Momento Guardado</span>`;
+        btnSubmit.classList.replace('bg-primary', 'bg-primary-container');
+        setTimeout(() => {
+          btnSubmit.innerHTML = prevHtml;
+          btnSubmit.disabled = false;
+          btnSubmit.classList.replace('bg-primary-container', 'bg-primary');
+        }, 1800);
+      }, 700);
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/85 backdrop-blur-xl shadow-[0_-4px_24px_rgba(45,60,50,0.05)]" data-active-classes="text-primary font-semibold relative after:content-[''] after:w-1.5 after:h-1.5 after:rounded-full after:bg-primary after:absolute after:bottom-1.5 after:mx-auto"><div class="h-20 px-margin-mobile flex items-center justify-around max-w-lg mx-auto"><a aria-current="page" class="flex flex-col items-center justify-center min-w-[56px] h-14 px-space-xs rounded-2xl transition-all duration-200 text-primary font-semibold relative after:content-[''] after:w-1.5 after:h-1.5 after:rounded-full after:bg-primary after:absolute after:bottom-1.5 after:mx-auto" data-path="check-in" href="index.html"><span class="material-symbols-outlined text-[24px]">favorite</span><span class="font-label-sm text-label-sm mt-1">Check-in</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 px-space-xs rounded-2xl text-on-surface-variant hover:text-on-surface transition-all duration-200" data-path="diario" href="../03-diario/index.html"><span class="material-symbols-outlined text-[24px]">book_2</span><span class="font-label-sm text-label-sm mt-1">Diário</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 px-space-xs rounded-2xl text-on-surface-variant hover:text-on-surface transition-all duration-200" data-path="relatorios" href="../04-relatorios/index.html"><span class="material-symbols-outlined text-[24px]">insights</span><span class="font-label-sm text-label-sm mt-1">Relatórios</span></a><a class="flex flex-col items-center justify-center min-w-[56px] h-14 px-space-xs rounded-2xl text-on-surface-variant hover:text-on-surface transition-all duration-200" data-path="ajustes" href="../05-ajustes/index.html"><span class="material-symbols-outlined text-[24px]">tune</span><span class="font-label-sm text-label-sm mt-1">Ajustes</span></a></div></nav>
+
+</body></html>
