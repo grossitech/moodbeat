@@ -431,7 +431,7 @@
           b.classList.remove('active');
           const circle = b.querySelector('div');
           circle.className = 'w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant shadow-sm transition-all duration-200 scale-95';
-          const label = b.querySelector('span:last-child');
+          const label = b.querySelector(':scope > span:last-child');
           label.className = 'font-label-sm text-label-sm mt-2 text-on-surface-variant';
         });
 
@@ -445,7 +445,7 @@
         btn.classList.add('active');
         const activeCircle = btn.querySelector('div');
         activeCircle.className = 'w-11 h-11 rounded-full flex items-center justify-center bg-primary text-on-primary shadow-sm transition-all duration-200 scale-105';
-        const activeLabel = btn.querySelector('span:last-child');
+        const activeLabel = btn.querySelector(':scope > span:last-child');
         activeLabel.className = 'font-label-sm text-label-sm mt-2 text-primary font-semibold';
 
         const val = btn.getAttribute('data-energy');
