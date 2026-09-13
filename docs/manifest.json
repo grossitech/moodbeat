@@ -1,6 +1,6 @@
 {
-  "name": "Moodbeat — Diário Emocional",
-  "short_name": "Moodbeat",
+  "name": "moodbeat — Diário Emocional",
+  "short_name": "moodbeat",
   "description": "Registre como você está se sentindo ao longo do dia, em segundos.",
   "id": "/moodbeat/",
   "start_url": "index.html",

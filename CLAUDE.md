@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-Moodbeat (working name; formerly called MindPulse — renamed to avoid App Store name collisions) is a static HTML/PWA prototype for an intraday emotional check-in mobile app. The screens were originally exported from Google Stitch and have since been hand-edited into a small installable Progressive Web App. There is no build system, package manager, or test suite. Each screen is a single self-contained `index.html` file (Tailwind CSS via the `cdn.tailwindcss.com` script, Google Fonts, Material Symbols) — no dev server, no `npm install`, no build step, no lint/test commands to run. This is now a git repository (initialized locally; see "Deployment" below for GitHub Pages status).
+moodbeat (working name; formerly called MindPulse — renamed to avoid App Store name collisions) is a static HTML/PWA prototype for an intraday emotional check-in mobile app. The screens were originally exported from Google Stitch and have since been hand-edited into a small installable Progressive Web App. There is no build system, package manager, or test suite. Each screen is a single self-contained `index.html` file (Tailwind CSS via the `cdn.tailwindcss.com` script, Google Fonts, Material Symbols) — no dev server, no `npm install`, no build step, no lint/test commands to run. This is now a git repository (initialized locally; see "Deployment" below for GitHub Pages status).
 
 ## Structure
 

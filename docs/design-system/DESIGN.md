@@ -149,7 +149,7 @@ This design system crafts an intentional digital sanctuary centered around holis
 
 The visual style blends modern organic minimalism with soft tactile nuances. Generous negative space gives thoughts room to breathe, while soft warm off-white canvases remove eye strain. Visual weight is communicated through warm tonal shifts and gentle atmospheric depth rather than hard divisions or jarring signals. Interaction patterns invite deliberate, centered pacing.
 
-**Note on palette intent**: unlike a typical "calm app" that leans on cool sage/lavender as the dominant tone, Moodbeat deliberately leads with **warm terracota**. The brand's calming promise comes from tonal warmth, generous whitespace and soft shapes — not from a cold, muted palette. Sage and lavender remain present as grounding secondary/tertiary accents, not as the dominant register.
+**Note on palette intent**: unlike a typical "calm app" that leans on cool sage/lavender as the dominant tone, moodbeat deliberately leads with **warm terracota**. The brand's calming promise comes from tonal warmth, generous whitespace and soft shapes — not from a cold, muted palette. Sage and lavender remain present as grounding secondary/tertiary accents, not as the dominant register.
 
 ## Colors
 The palette is grounded in natural transitions of light, stone, foliage, and twilight:
