@@ -1,4 +1,4 @@
-const CACHE_NAME = 'moodbeat-v1';
+const CACHE_NAME = 'moodbeat-v2';
 const APP_SHELL = [
   'index.html',
   'manifest.json',
@@ -10,7 +10,8 @@ const APP_SHELL = [
   '05-ajustes/index.html',
   'assets/icon-192.png',
   'assets/icon-512.png',
-  'assets/apple-touch-icon.png'
+  'assets/apple-touch-icon.png',
+  'assets/data-store.js'
 ];
 
 self.addEventListener('install', (event) => {

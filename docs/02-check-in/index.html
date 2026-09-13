@@ -2,6 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="../manifest.json" rel="manifest"><meta content="#a03b14" name="theme-color"><link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"><link href="../assets/icon-192.png" rel="icon"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="moodbeat" name="apple-mobile-web-app-title">
 <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }</script>
+<script src="../assets/data-store.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -399,6 +400,7 @@
     const energyBadge = document.getElementById('energy-badge');
     const energyProgress = document.getElementById('energy-progress');
     const energyButtons = document.querySelectorAll('.energy-btn');
+    let selectedEnergyLevel = null;
 
     const descriptions = {
       '1': { label: 'Nível 1 · Baixa energia', width: '20%' },
@@ -422,6 +424,7 @@
 
         if (wasActive) {
           // Clicar de novo no mesmo nível desmarca (energia é opcional)
+          selectedEnergyLevel = null;
           energyBadge.textContent = 'Não marcado';
           energyProgress.style.width = '0%';
           return;
@@ -434,12 +437,26 @@
         activeLabel.className = 'font-label-sm text-label-sm mt-2 text-primary font-semibold';
 
         const val = btn.getAttribute('data-energy');
+        selectedEnergyLevel = parseInt(val, 10);
         if (descriptions[val]) {
           energyBadge.textContent = descriptions[val].label;
           energyProgress.style.width = descriptions[val].width;
         }
       });
     });
+
+    function resetEnergySelector() {
+      selectedEnergyLevel = null;
+      energyBadge.textContent = 'Não marcado';
+      energyProgress.style.width = '0%';
+      energyButtons.forEach(b => {
+        b.classList.remove('active');
+        const circle = b.querySelector('div');
+        circle.className = 'w-11 h-11 rounded-full flex items-center justify-center bg-surface-container-low text-on-surface-variant shadow-sm transition-all duration-200 scale-95';
+        const label = b.querySelector(':scope > span:last-child');
+        label.className = 'font-label-sm text-label-sm mt-2 text-on-surface-variant';
+      });
+    }
 
     // Emotion chips selection
     const tagsContainer = document.getElementById('tags-container');
@@ -448,7 +465,30 @@
     function updateSelectedCount() {
       const activeChips = tagsContainer.querySelectorAll('.emotion-chip.active');
       const count = activeChips.length;
-      selectedCount.textContent = count === 1 ? '1 selecionada' : `${count} selecionadas`;
+      if (count === 0) {
+        selectedCount.textContent = 'Nenhuma selecionada';
+      } else {
+        selectedCount.textContent = count === 1 ? '1 selecionada' : `${count} selecionadas`;
+      }
+    }
+
+    function getSelectedEmotions() {
+      const activeChips = tagsContainer.querySelectorAll('.emotion-chip.active');
+      return Array.from(activeChips).map(chip => {
+        const spans = chip.querySelectorAll(':scope > span');
+        if (spans.length >= 2) {
+          return { label: spans[0].textContent.trim(), emoji: spans[1].textContent.trim() };
+        }
+        return { label: chip.textContent.trim(), emoji: '' };
+      });
+    }
+
+    function resetEmotionChips() {
+      tagsContainer.querySelectorAll('.emotion-chip.active').forEach(chip => {
+        chip.classList.remove('active');
+        chip.className = 'emotion-chip flex items-center gap-2 px-5 py-3.5 rounded-full bg-surface-container-lowest text-on-surface font-label-lg text-[17px] font-semibold shadow-sm hover:bg-surface-container-low border border-outline-variant/30 transition-all duration-200 active:scale-95';
+      });
+      updateSelectedCount();
     }
 
     tagsContainer.addEventListener('click', (e) => {
@@ -504,16 +544,42 @@
       }
     });
 
-    // Submit confirmation toast feedback
+    // Submit: salva de verdade no MoodbeatStore, depois reseta o formulário
     const btnSubmit = document.getElementById('btn-submit');
+    const triggerInput = document.getElementById('trigger-input');
+
     btnSubmit.addEventListener('click', () => {
+      const emotions = getSelectedEmotions();
+
+      if (emotions.length === 0) {
+        selectedCount.classList.add('bg-error-container', 'text-on-error-container');
+        selectedCount.textContent = 'Selecione ao menos 1 emoção';
+        setTimeout(() => {
+          selectedCount.classList.remove('bg-error-container', 'text-on-error-container');
+          updateSelectedCount();
+        }, 1800);
+        return;
+      }
+
       const prevHtml = btnSubmit.innerHTML;
       btnSubmit.innerHTML = `<span class="material-symbols-outlined text-[22px] animate-spin">refresh</span><span>Registrando...</span>`;
       btnSubmit.disabled = true;
 
       setTimeout(() => {
+        window.MoodbeatStore.addCheckIn({
+          emotions: emotions,
+          energyLevel: selectedEnergyLevel,
+          note: triggerInput.value.trim()
+        });
+
         btnSubmit.innerHTML = `<span class="material-symbols-outlined text-[22px]">check</span><span>Momento Guardado</span>`;
         btnSubmit.classList.replace('bg-primary', 'bg-primary-container');
+
+        // Reseta o formulário para o próximo check-in
+        resetEmotionChips();
+        resetEnergySelector();
+        triggerInput.value = '';
+
         setTimeout(() => {
           btnSubmit.innerHTML = prevHtml;
           btnSubmit.disabled = false;

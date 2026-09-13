@@ -2,6 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="../manifest.json" rel="manifest"><meta content="#a03b14" name="theme-color"><link href="../assets/apple-touch-icon.png" rel="apple-touch-icon"><link href="../assets/icon-192.png" rel="icon"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="moodbeat" name="apple-mobile-web-app-title">
 <script>if ('serviceWorker' in navigator) { navigator.serviceWorker.register('../sw.js'); }</script>
+<script src="../assets/data-store.js"></script>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
   tailwind.config = {
     darkMode: "class",
@@ -225,7 +226,7 @@
 <div class="flex items-center justify-between">
 <div class="flex flex-col">
 <span class="font-label-sm text-label-sm text-primary font-semibold tracking-wider uppercase">Diário de Emoções</span>
-<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface tracking-tight">Hoje, 24 de Outubro</h1>
+<h1 class="font-display-lg-mobile text-display-lg-mobile text-on-surface tracking-tight" id="diario-date">Hoje</h1>
 </div>
 <div class="w-12 h-12 rounded-2xl bg-surface-container-low flex items-center justify-center shadow-sm">
 <span class="material-symbols-outlined text-primary text-[26px]">calendar_today</span>
@@ -233,7 +234,7 @@
 </div>
 <div class="inline-flex items-center gap-space-xs bg-surface-container px-space-md py-space-xs rounded-full w-fit">
 <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">4 check-ins realizados • Predominante: <strong class="text-primary font-semibold">Calmo &amp; Focado</strong></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium" id="diario-summary-text">Carregando...</span>
 </div>
 </div>
 <!-- ROTINA ATIVA CARD: Warm terracotta primary container -->
@@ -266,7 +267,7 @@
 </div>
 </div>
 <!-- ONDAS DE SERENIDADE: Secondary calming natural sage/moss green progress ring & icon -->
-<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex items-center gap-space-md">
+<div class="hidden bg-surface-container-lowest rounded-lg p-space-lg shadow-sm items-center gap-space-md" id="ondas-serenidade-card">
 <div class="relative w-16 h-16 shrink-0 flex items-center justify-center">
 <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 48 48">
 <circle class="text-surface-container" cx="24" cy="24" fill="transparent" r="19" stroke="currentColor" stroke-width="4"></circle>
@@ -279,14 +280,13 @@
 <div class="flex flex-col min-w-0">
 <span class="font-label-sm text-label-sm text-secondary font-medium tracking-wide uppercase">Reflexão do Ciclo</span>
 <p class="font-headline-sm text-headline-sm text-on-surface leading-tight mt-0.5">Ondas de serenidade</p>
-<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Você manteve uma tendência positiva e equilibrada nas últimas 4 horas.</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1" id="ondas-desc"></p>
 </div>
 </div>
 <div class="flex flex-col space-y-space-md">
 <div class="flex items-center justify-between px-space-2xs">
 <h2 class="font-headline-sm text-headline-sm text-on-surface">Linha do Tempo Intradiária</h2>
 <div class="flex items-center gap-space-md">
-<button class="text-on-surface-variant/60 font-label-sm text-label-sm hover:underline active:opacity-70" id="btn-toggle-empty-demo" type="button">Ver estado inicial</button>
 <button class="text-primary font-label-md text-label-md flex items-center gap-1 hover:underline active:opacity-70">
 <span class="material-symbols-outlined text-[16px]">tune</span>
         Filtrar
@@ -304,136 +304,7 @@
         Fazer meu primeiro check-in
       </a>
 </div>
-<div class="relative pl-6 space-y-space-lg before:content-[''] before:absolute before:left-[11px] before:top-3 before:bottom-6 before:w-[2px] before:bg-surface-container-high" id="timeline-populated">
-<!-- Entry 1: Grato (Tertiary soft purple badge) + Secondary node dot -->
-<div class="relative group">
-<span class="absolute -left-6 top-4 w-[24px] h-[24px] rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-</span>
-<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm transition-all duration-200 hover:shadow-md">
-<div class="flex items-start justify-between gap-space-sm mb-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">15:00</span>
-<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-tertiary-fixed text-on-tertiary-fixed-variant">
-                Grato ✨
-              </span>
-</div>
-<div class="flex items-center gap-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant/70">Energia: Renovada</span>
-<button class="text-on-surface-variant/60 hover:text-on-surface p-1 rounded-full active:scale-90 transition-transform">
-<span class="material-symbols-outlined text-[18px]">edit_note</span>
-</button>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low/70 p-space-sm rounded-2xl">
-            "Pausa para caminhada de 10 min no sol. Respiração relaxada e corpo descontraído."
-          </p>
-<div class="flex items-center gap-space-xs mt-space-xs">
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant/80">
-<span class="material-symbols-outlined text-[14px] text-secondary">spa</span> Ar livre
-            </span>
-<span class="text-on-surface-variant/40">•</span>
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant/80">
-<span class="material-symbols-outlined text-[14px] text-primary">wb_sunny</span> Luz natural
-            </span>
-</div>
-</div>
-</div>
-<!-- Entry 2: Ansioso (Warm terracotta/orange accent badge) + Secondary node dot -->
-<div class="relative group">
-<span class="absolute -left-6 top-4 w-[24px] h-[24px] rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-</span>
-<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm transition-all duration-200 hover:shadow-md">
-<div class="flex items-start justify-between gap-space-sm mb-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">13:00</span>
-<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-primary-fixed text-on-primary-fixed-variant">
-                Ansioso ⚡
-              </span>
-</div>
-<div class="flex items-center gap-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant/70">Energia: Média</span>
-<button class="text-on-surface-variant/60 hover:text-on-surface p-1 rounded-full active:scale-90 transition-transform">
-<span class="material-symbols-outlined text-[18px]">edit_note</span>
-</button>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low/70 p-space-sm rounded-2xl">
-            "Feedback do cliente atrasou um pouco. Senti uma leve pressão no peito, mas respirei fundo."
-          </p>
-<div class="flex items-center gap-space-xs mt-space-xs">
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant/80">
-<span class="material-symbols-outlined text-[14px] text-tertiary">work</span> Trabalho
-            </span>
-<span class="text-on-surface-variant/40">•</span>
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant/80">
-<span class="material-symbols-outlined text-[14px] text-outline">timer</span> Atraso
-            </span>
-</div>
-</div>
-</div>
-<!-- Entry 3: Focado (Primary highlight badge) + Secondary node dot -->
-<div class="relative group">
-<span class="absolute -left-6 top-4 w-[24px] h-[24px] rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-</span>
-<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm transition-all duration-200 hover:shadow-md">
-<div class="flex items-start justify-between gap-space-sm mb-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">10:30</span>
-<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-primary-fixed text-on-primary-fixed-variant">
-                Focado 🎯
-              </span>
-</div>
-<div class="flex items-center gap-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant/70">Energia: Alta</span>
-<button class="text-on-surface-variant/60 hover:text-on-surface p-1 rounded-full active:scale-90 transition-transform">
-<span class="material-symbols-outlined text-[18px]">edit_note</span>
-</button>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low/70 p-space-sm rounded-2xl">
-            "Finalizando apresentação do projeto. Concentração plena, sem dispersões externas."
-          </p>
-<div class="flex items-center gap-space-xs mt-space-xs">
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant/80">
-<span class="material-symbols-outlined text-[14px] text-primary">laptop_mac</span> Foco profundo
-            </span>
-</div>
-</div>
-</div>
-<!-- Entry 4: Tranquilo (Secondary sage green badge) + Secondary node dot -->
-<div class="relative group">
-<span class="absolute -left-6 top-4 w-[24px] h-[24px] rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
-<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
-</span>
-<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm transition-all duration-200 hover:shadow-md">
-<div class="flex items-start justify-between gap-space-sm mb-space-xs">
-<div class="flex items-center gap-space-xs">
-<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">08:30</span>
-<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-label-sm font-medium bg-secondary-container text-on-secondary-fixed-variant">
-                Tranquilo 🌿
-              </span>
-</div>
-<div class="flex items-center gap-1">
-<span class="font-label-sm text-label-sm text-on-surface-variant/70">Energia: Equilibrada</span>
-<button class="text-on-surface-variant/60 hover:text-on-surface p-1 rounded-full active:scale-90 transition-transform">
-<span class="material-symbols-outlined text-[18px]">edit_note</span>
-</button>
-</div>
-</div>
-<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low/70 p-space-sm rounded-2xl">
-            "Café da manhã sem telas, manhã começou leve e silenciosa."
-          </p>
-<div class="flex items-center gap-space-xs mt-space-xs">
-<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-on-surface-variant/80">
-<span class="material-symbols-outlined text-[14px] text-secondary">coffee</span> Despertar
-            </span>
-</div>
-</div>
-</div>
-</div>
+<div class="hidden relative pl-6 space-y-space-lg before:content-[''] before:absolute before:left-[11px] before:top-3 before:bottom-6 before:w-[2px] before:bg-surface-container-high" id="timeline-populated"></div>
 </div>
 <!-- Retroactive registration CTA: Primary accent button -->
 <div class="bg-surface-container-low rounded-lg p-space-md flex items-center justify-between gap-space-sm">
@@ -464,16 +335,95 @@
 </div>
 <script>
   (function() {
-    const btnToggleEmpty = document.getElementById('btn-toggle-empty-demo');
-    const timelineEmpty = document.getElementById('timeline-empty');
-    const timelinePopulated = document.getElementById('timeline-populated');
-    btnToggleEmpty?.addEventListener('click', () => {
-      const showingEmpty = timelineEmpty.classList.contains('hidden');
-      timelineEmpty.classList.toggle('hidden', !showingEmpty);
-      timelineEmpty.classList.toggle('flex', showingEmpty);
-      timelinePopulated.classList.toggle('hidden', showingEmpty);
-      btnToggleEmpty.textContent = showingEmpty ? 'Ver com registros' : 'Ver estado inicial';
-    });
+    const energyLabels = { 1: 'Baixa', 2: 'Suave', 3: 'Neutro', 4: 'Vibrante', 5: 'Radiante' };
+    const badgeStyles = [
+      'bg-primary-fixed text-on-primary-fixed-variant',
+      'bg-secondary-container text-on-secondary-fixed-variant',
+      'bg-tertiary-fixed text-on-tertiary-fixed-variant'
+    ];
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function formatTime(timestamp) {
+      const d = new Date(timestamp);
+      return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
+    }
+
+    function renderEntry(checkin, index) {
+      const emotionsHtml = (checkin.emotions || []).map((e, i) => {
+        const style = badgeStyles[i % badgeStyles.length];
+        return `<span class="inline-flex items-center px-space-sm py-0.5 rounded-full text-label-sm font-label-sm font-medium ${style}">${escapeHtml(e.label)}${e.emoji ? ' ' + e.emoji : ''}</span>`;
+      }).join('');
+
+      const energyHtml = checkin.energyLevel
+        ? `<span class="font-label-sm text-label-sm text-on-surface-variant/70 shrink-0">Energia: ${energyLabels[checkin.energyLevel] || ''}</span>`
+        : '';
+
+      const noteHtml = checkin.note
+        ? `<p class="font-body-sm text-body-sm text-on-surface bg-surface-container-low/70 p-space-sm rounded-2xl mt-space-xs">"${escapeHtml(checkin.note)}"</p>`
+        : '';
+
+      return `<div class="relative group">
+<span class="absolute -left-6 top-4 w-[24px] h-[24px] rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+</span>
+<div class="bg-surface-container-lowest rounded-lg p-space-md shadow-sm transition-all duration-200 hover:shadow-md">
+<div class="flex items-start justify-between gap-space-sm flex-wrap">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">${formatTime(checkin.timestamp)}</span>
+${emotionsHtml}
+</div>
+${energyHtml}
+</div>
+${noteHtml}
+</div>
+</div>`;
+    }
+
+    function renderDiario() {
+      const checkins = window.MoodbeatStore.getTodayCheckIns();
+      const dateEl = document.getElementById('diario-date');
+      const summaryEl = document.getElementById('diario-summary-text');
+      const ondasCard = document.getElementById('ondas-serenidade-card');
+      const ondasDesc = document.getElementById('ondas-desc');
+      const timelineEmpty = document.getElementById('timeline-empty');
+      const timelinePopulated = document.getElementById('timeline-populated');
+
+      const todayLabel = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long' }).format(new Date());
+      dateEl.textContent = 'Hoje, ' + todayLabel;
+
+      if (checkins.length === 0) {
+        summaryEl.textContent = 'Nenhum check-in ainda hoje';
+        ondasCard.classList.add('hidden');
+        ondasCard.classList.remove('flex');
+        timelineEmpty.classList.remove('hidden');
+        timelineEmpty.classList.add('flex');
+        timelinePopulated.classList.add('hidden');
+        return;
+      }
+
+      const top = window.MoodbeatStore.getTopEmotions(checkins, 2);
+      const predominantText = top.map((t) => t.label).join(' & ');
+      summaryEl.innerHTML = checkins.length + (checkins.length === 1 ? ' check-in realizado' : ' check-ins realizados') +
+        (predominantText ? ` • Predominante: <strong class="text-primary font-semibold">${escapeHtml(predominantText)}</strong>` : '');
+
+      ondasCard.classList.remove('hidden');
+      ondasCard.classList.add('flex');
+      ondasDesc.textContent = checkins.length === 1
+        ? 'Seu primeiro registro do dia já está guardado.'
+        : `Você já reservou ${checkins.length} momentos pra notar como está se sentindo hoje.`;
+
+      timelineEmpty.classList.add('hidden');
+      timelineEmpty.classList.remove('flex');
+      timelinePopulated.classList.remove('hidden');
+      timelinePopulated.innerHTML = checkins.map(renderEntry).join('');
+    }
+
+    renderDiario();
   })();
 
   document.getElementById('btn-quick-checkin')?.addEventListener('click', () => {
